@@ -1,0 +1,29 @@
+{
+  "name": "km-tailwind-d8-starterkit",
+  "version": "1.0.0",
+  "description": "Frontend starterkit setup for Kodamera",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:kodamera/km-tailwind-d8-starterkit.git",
+  "author": "Henrik Larsson <henrik@kodamera.se>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --config webpack.config.js --mode development",
+    "start": "webpack --watch",
+    "start:dev": "webpack --watch --mode development",
+    "prod": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "tailwindcss": "^1.8.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "postcss": "^8.0.5",
+    "postcss-loader": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
