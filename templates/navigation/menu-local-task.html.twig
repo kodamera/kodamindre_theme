@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme override for a local task link.
+ */
+#}
+{%
+  set classes = [
+    'o-list-inline__item',
+    'c-tabs__item',
+    is_active ? 'is-active'
+  ]
+%}
+
+<li{{ attributes.addClass(classes) }}>
+  {{ link }}
+</li>

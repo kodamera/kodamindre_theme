@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override to display a main content template.
+ *
+#}
+<main class="c-site__main" role="main">
+  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+  <div class="o-wrapper">
+    <div class="o-layout">
+      <div class="o-layout__item u-12">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</main>

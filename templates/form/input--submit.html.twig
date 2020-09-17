@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' of type submit form element.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{%
+  set classes = [
+    'c-button',
+    'c-button--primary',
+    'u-mt-default'
+  ]
+%}
+<input{{ attributes.addClass(classes).removeClass('button', 'button--primary') }} />{{ children }}

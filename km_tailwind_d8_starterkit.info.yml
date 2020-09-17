@@ -1,0 +1,17 @@
+name: 'Kodamera frontend starterkit'
+type: theme
+description: 'Kodamera frontend starterkit'
+core: 8.x
+base theme: 'stable'
+libraries:
+  - km_frontend_starterkit/global-styling
+  - km_frontend_starterkit/global-scripts
+regions:
+  branding: Branding
+  header: Header
+  pre_content: Pre content
+  content: Content
+  post_content: Post content
+  footer: Footer
+ckeditor_stylesheets:
+  - css/ckeditor.css

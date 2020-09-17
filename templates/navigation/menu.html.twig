@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+  1. We use menu_name (see above) to create a CSS class name from it.
+  By doing so, every menu will get it's own specific class name so that
+  we avoid class clashes ang generate specific markup.
+  See https://www.drupal.org/node/2649076
+#}
+{{ menus.menu_links(items, attributes, 0, menu_name) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+
+  {%
+    set menu_classes = [
+      'o-list-inline',
+      'c-menu',
+      'c-menu--' ~ menu_name|clean_class
+    ]
+  %}
+
+  {%
+    set submenu_classes = [
+      'c-menu-submenu'
+    ]
+  %}
+
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass(menu_classes) }}>
+    {% else %}
+      <ul{{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [
+          'o-list-inline__item',
+          'c-menu__item',
+          'c-menu__item--' ~ menu_name|clean_class,
+          item.in_active_trail ? 'c-menu-item--active-trail',
+          item.is_last_trail ? 'c-menu-item--last-active-trail'
+        ]
+      %}
+      {%
+        set link_classes = [
+          'c-menu__link',
+          'c-menu__link--' ~ menu_name|clean_class,
+        ]
+      %}
+     <li {{ item.attributes.addClass(item_classes) }}>
+        {{
+          link(
+            item.title,
+            item.url,
+            item.attributes.removeClass(item_classes).removeClass(button_classes).addClass(link_classes)
+          )
+        }}
+        {% if item.below %}
+          {# add arrow in sketches here #}
+        {% endif %}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

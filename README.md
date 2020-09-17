@@ -1,29 +1,7 @@
-# README #
+# KM frontend startkerkit
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Ett frontend starterkit för projekt på Kodamera.
 
-### What is this repository for? ###
+## Dokumentation
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Komplett dokumentation återfinns i Confluence: [Kodamera frontend](https://kodamera.atlassian.net/wiki/spaces/KOD/pages/702087177/Frontend).
