@@ -1,5 +1,19 @@
-@tailwind base;
+/** ---------------------------------------------------------------------------- (80)
+ * Project CSS index.
+ * ----------------------------------------------------------------------------
+ */
 
-@tailwind components;
+/* Base CSS */
+@import "tailwindcss/base";
+@import "./base.css";
 
-@tailwind utilities;
+/* Components CSS */
+@import "tailwindcss/components";
+@import "./components.css";
+
+/* Utility CSS */
+@import "tailwindcss/utilities";
+@import "./utilities.css";
+
+/* Objects - undecorated design patterns */
+@import "./objects/all.css";

@@ -3,7 +3,9 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: {
+    content: ['./templates/**/*.html.twig']
+  },
   theme: {
     extend: {},
   },
