@@ -1,7 +1,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = {
   entry: './src/css/index.css',
@@ -34,6 +34,19 @@ module.exports = {
     ],
   },
   plugins: [
+    new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development,
+      // ./public directory is being served
+      host: 'localhost',
+      port: 3000,
+      files: [
+        "./dist/**/*.css",
+        "./templates/**/*.html.twig"
+      ],
+      proxy: {
+        target: "http://km-tailwind-d8-starterkit.test/"
+      },
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -44,13 +57,6 @@ module.exports = {
     }),
     new ExtractTextPlugin('index.css', {
       disable: process.env.NODE_ENV === 'development',
-    }),
-    new HtmlWebpackPlugin({
-      patterns: [
-        { from: 'src/index.html', to: 'dist/' },
-      ],
-      filename: 'index.html',
-      template: 'src/index.html',
     }),
   ],
 }

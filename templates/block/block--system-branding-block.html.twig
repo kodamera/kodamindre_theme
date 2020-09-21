@@ -15,12 +15,12 @@
 #}
 {% block content %}
   {% if site_logo %}
-    <a class="c-logo" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-      <img class="c-logo__symbol" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <img class="w-12 h-12" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
   {% endif %}
   {% if site_name %}
-    <a class="c-site-name" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    <a class="sr-only" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
   {% endif %}
   {{ site_slogan }}
 {% endblock %}
