@@ -3,6 +3,8 @@
  * ----------------------------------------------------------------------------
  */
 
+/* purgecss start ignore */
+
 /* Base CSS */
 @import "tailwindcss/base";
 @import "./base.css";
@@ -10,6 +12,8 @@
 /* Components CSS */
 @import "tailwindcss/components";
 @import "./components.css";
+
+/* purgecss end ignore */
 
 /* Utility CSS */
 @import "tailwindcss/utilities";
