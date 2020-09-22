@@ -14,12 +14,22 @@
 #}
 {%
   set title_classes = [
-    'u-h1'
+    'font-bold',
+    'mb-4',
+    'text-2xl',
+    'leading-snug',
+    'md:text-3xl',
+    'md:leading-snug',
+    'md:mb-8',
+    'lg:text-4xl',
+    'lg:leading-snug',
+    'xl:text-5xl',
+    'xl:leading-snug',
   ]
 %}
 
 {{ title_prefix }}
 {% if title %}
-  <h1{{ title_attributes.addClass(title_classes) }}><span>{{ title }}</span></h1>
+  <h1{{ title_attributes.addClass(title_classes) }}>{{ title }}</h1>
 {% endif %}
 {{ title_suffix }}

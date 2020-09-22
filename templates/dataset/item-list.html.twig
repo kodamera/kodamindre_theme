@@ -19,8 +19,8 @@
  */
 #}
 {% if context.list_style %}
-  {% set list_attributes = attributes.addClass('o-list-bare') %}
-  {% set list_item_attributes = attributes.addClass('o-list-bare__item') %}
+  {% set list_attributes = attributes.addClass('list-none') %}
+  {% set list_item_attributes = attributes.addClass('block') %}
 {% endif %}
 {%- if items or empty -%}
   {%- if title is not empty -%}

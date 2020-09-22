@@ -8,14 +8,14 @@
  */
 #}
 {% if breadcrumb %}
-  <nav role="navigation" aria-labelledby="system-breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+  <nav class="bg-gray-100" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="sr-only">{{ 'Breadcrumb'|t }}</h2>
     <div class="o-wrapper">
-      <ol class="o-list-inline c-breadcrumb">
+      <ol class="c-breadcrumb list-style-none -mx-4">
         {% for item in breadcrumb %}
-          <li class="o-list-inline__item c-breadcrumb__item">
+          <li class="c-breadcrumb__item inline-block">
             {% if item.url %}
-              <a class="c-breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
+              <a class="c-breadcrumb__link block p-4" href="{{ item.url }}">{{ item.text }}</a>
             {% else %}
               {{ item.text }}
             {% endif %}

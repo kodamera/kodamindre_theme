@@ -4,5 +4,5 @@
  */
 
 .o-wrapper {
- @apply mx-auto max-w-screen-xl w-full;
+ @apply mx-auto max-w-screen-xl w-full px-4;
 }

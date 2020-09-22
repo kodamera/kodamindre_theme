@@ -52,13 +52,14 @@
     title_display not in ['after', 'before'] ? 'c-form-item--no-label',
     disabled == 'disabled' ? 'c-form-item--disabled',
     errors ? 'c-form-item--error',
+    'max-w-full'
   ]
 %}
 {%
   set description_classes = [
-    'c-caption',
-    description_display == 'after' ? 'u-mt-micro',
-    description_display == 'invisible' ? 'visually-hidden',
+    'text-sm',
+    description_display == 'after' ? 'mb-4',
+    description_display == 'invisible' ? 'sr-only',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>

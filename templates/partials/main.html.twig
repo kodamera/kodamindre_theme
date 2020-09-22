@@ -4,13 +4,9 @@
  * Theme override to display a main content template.
  *
 #}
-<main class="c-site__main" role="main">
+<main class="flex flex-grow mt-8 mb-12 md:mt-12 md:mb-16 lg:mt-16 lg:mb-20" role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
   <div class="o-wrapper">
-    <div class="o-layout">
-      <div class="o-layout__item u-12">
-        {{ page.content }}
-      </div>
-    </div>
+    {{ page.content }}
   </div>
 </main>

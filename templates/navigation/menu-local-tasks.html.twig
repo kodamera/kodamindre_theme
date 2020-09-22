@@ -20,17 +20,18 @@
 %}
 {%
   set list_classes = [
-    'o-list-inline',
     'c-tabs__list',
     logged_in ? 'c-tabs__list--admin',
     not logged_in ? 'c-tabs__list--public',
     primary ? 'c-tabs__list--primary',
-    secondary ? 'c-tabs__list--secondary'
+    secondary ? 'c-tabs__list--secondary',
+    'flex',
+    'list-style-none',
+    '-mx-4',
   ]
 %}
 <div class="o-wrapper">
   <div{{ attributes.addClass(tabs_classes) }}>
-    <div class="c-tabs__overlay"></div>
     <div class="c-tabs__wrapper">
       {% if primary %}
         <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>

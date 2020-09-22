@@ -21,7 +21,7 @@
 
   {%
     set menu_classes = [
-      'o-list-inline',
+      'list-style-none',
       'c-menu',
       'c-menu--' ~ menu_name|clean_class
     ]
@@ -42,7 +42,7 @@
     {% for item in items %}
       {%
         set item_classes = [
-          'o-list-inline__item',
+          'inline-block',
           'c-menu__item',
           'c-menu__item--' ~ menu_name|clean_class,
           item.in_active_trail ? 'c-menu-item--active-trail',
@@ -53,6 +53,8 @@
         set link_classes = [
           'c-menu__link',
           'c-menu__link--' ~ menu_name|clean_class,
+          'block',
+          'py-3 px-4',
         ]
       %}
      <li {{ item.attributes.addClass(item_classes) }}>

@@ -55,7 +55,7 @@ module.exports = {
         },
       ],
     }),
-    new ExtractTextPlugin('index.css', {
+    new ExtractTextPlugin('css/index.css', {
       disable: process.env.NODE_ENV === 'development',
     }),
   ],

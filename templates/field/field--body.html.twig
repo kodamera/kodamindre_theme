@@ -8,11 +8,11 @@
 #}
 {%
   set title_classes = [
-    label_display == 'visually_hidden' ? 'visually-hidden',
+    label_display == 'visually_hidden' ? 'sr-only',
   ]
 %}
 
-<div class="c-content">
+<div class="prose md:prose-md lg:prose-lg xl:prose-xl">
   {% if label_hidden %}
     {% if multiple %}
       {% for item in items %}
