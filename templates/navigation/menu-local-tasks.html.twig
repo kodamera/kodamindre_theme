@@ -30,17 +30,15 @@
     '-mx-4  ',
   ]
 %}
-<div class="o-wrapper">
-  <div{{ attributes.addClass(tabs_classes) }}>
-    <div class="c-tabs__wrapper">
-      {% if primary %}
-        <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-        <ul{{ attributes.removeClass(tabs_classes).addClass(list_classes) }}>{{ primary }}</ul>
-      {% endif %}
-      {% if secondary %}
-        <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-        <ul{{ attributes.removeClass(tabs_classes).addClass(list_classes) }}>{{ secondary }}</ul>
-      {% endif %}
-    </div>
+<div{{ attributes.addClass(tabs_classes) }}>
+  <div class="c-tabs__wrapper">
+    {% if primary %}
+      <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+      <ul{{ attributes.removeClass(tabs_classes).addClass(list_classes) }}>{{ primary }}</ul>
+    {% endif %}
+    {% if secondary %}
+      <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+      <ul{{ attributes.removeClass(tabs_classes).addClass(list_classes) }}>{{ secondary }}</ul>
+    {% endif %}
   </div>
 </div>

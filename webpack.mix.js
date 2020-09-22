@@ -34,7 +34,7 @@ mix
   .purgeCss({
     content: [
       path.join(__dirname, 'templates/**/*.html.twig'),
-      path.join(__dirname, 'src/js/**/*.js')
+      path.join(__dirname, 'src/js/**/*.js'),
     ],
     whitelistPatterns: [],
 })
