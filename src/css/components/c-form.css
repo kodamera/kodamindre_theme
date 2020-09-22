@@ -1,5 +1,5 @@
 .c-form > * {
-  @apply mt-8;
+  @apply mt-4;
 }
 
 .c-form > *:first-child {

@@ -23,6 +23,7 @@
     'border border-solid border-gray-300'
   ]
 %}
-<div{{ wrapper_attributes }}>
-  <textarea{{ attributes.addClass(classes) }}>{{ value }}</textarea>
-</div>
+<textarea{{ attributes.addClass(classes) }}>{{ value }}</textarea>
+{# If wrapping attributes are needed, place textare inside div below #}
+{#<div{{ wrapper_attributes }}></div>#}
+

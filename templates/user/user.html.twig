@@ -17,7 +17,9 @@
  */
 #}
 <article{{ attributes.addClass('c-user') }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
+  <div class="bg-gray-100 p-6">
+    {% if content %}
+      {{- content -}}
+    {% endif %}
+  </div>
 </article>
