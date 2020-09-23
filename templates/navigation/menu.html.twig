@@ -1,9 +1,3 @@
-{#
-/**
- * @file
- * Theme override to display a menu.
- */
-#}
 {% import _self as menus %}
 
 {#
@@ -21,15 +15,7 @@
 
   {%
     set menu_classes = [
-      'list-style-none',
-      'c-menu',
-      'c-menu--' ~ menu_name|clean_class
-    ]
-  %}
-
-  {%
-    set submenu_classes = [
-      'c-menu-submenu'
+      'list-style-none'
     ]
   %}
 
@@ -43,16 +29,11 @@
       {%
         set item_classes = [
           'inline-block',
-          'c-menu__item',
-          'c-menu__item--' ~ menu_name|clean_class,
-          item.in_active_trail ? 'c-menu-item--active-trail',
-          item.is_last_trail ? 'c-menu-item--last-active-trail'
+          item.in_active_trail ? 'is-in-active-trail',
         ]
       %}
       {%
         set link_classes = [
-          'c-menu__link',
-          'c-menu__link--' ~ menu_name|clean_class,
           'block',
           'py-3 px-4',
         ]
