@@ -2,7 +2,7 @@
 You'll find complete documentation below [Utvecklng --> Frontend](https://kodamera.atlassian.net/wiki/spaces/KOD/pages/702087177/Frontend) in Kodamera's confluence space.
 
 ## Get started
-First things first, this starterkit is meant to be placed inside the themes folder in a Drupal 8/9 setup. Make sure you have a Drupal setup ready before starting.
+First things first, this starterkit is meant to be placed inside the themes folder of a Drupal 8/9 setup. Make sure you have a Drupal setup ready before starting.
 
 1. Fork/copy this repo, DON'T clone it, this is just a starterkit that is only worked against if you iterate the starterkit.
 2. Put it in a Drupal 8/9 theme folder of your choice.
