@@ -6,7 +6,7 @@ First things first, this starterkit is meant to be placed inside the themes fold
 
 1. Fork/copy this repo, DON'T clone it, this is a starterkit that is supposed to serve as a starting point.
 2. Put it in a Drupal 8/9 theme folder of your choice.
-3. `$ cd path/to/theme` to the theme.
+3. Navigate to your theme: `$ cd path/to/theme`.
 4. Continue to next step.
 
 ### Installation
