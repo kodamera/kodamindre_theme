@@ -3,7 +3,7 @@
  * @type {Object}
  */
 const isJavaScriptEnabled = () => {
-  const $body = document.querySelector(".js-c-body");
+  const $body = document.querySelector("body");
 
   if ($body) {
     $body.classList.remove("has-no-js");

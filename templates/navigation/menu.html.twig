@@ -15,7 +15,7 @@
 
   {%
     set menu_classes = [
-      'list-style-none'
+      'list-style-none',
     ]
   %}
 
@@ -29,13 +29,14 @@
       {%
         set item_classes = [
           'inline-block',
-          item.in_active_trail ? 'is-in-active-trail',
+          item.in_active_trail ? 'underline',
         ]
       %}
       {%
         set link_classes = [
           'block',
           'py-3 px-4',
+          item.in_active_trail ? 'underline',
         ]
       %}
      <li {{ item.attributes.addClass(item_classes) }}>

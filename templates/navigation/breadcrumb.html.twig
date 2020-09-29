@@ -6,7 +6,7 @@
         {% for item in breadcrumb %}
           <li class="inline-block">
             {% if item.url %}
-              <a class="cblock p-4" href="{{ item.url }}">{{ item.text }}</a>
+              <a class="block p-4" href="{{ item.url }}">{{ item.text }}</a>
             {% else %}
               {{ item.text }}
             {% endif %}
