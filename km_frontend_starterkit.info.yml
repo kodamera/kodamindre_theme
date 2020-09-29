@@ -1,12 +1,12 @@
-name: 'Kodamera Tailwind Drupal 8 frontend starterkit'
+name: 'Kodamera frontend starterkit'
 type: theme
-description: 'Frontend starterkit for Kodamera to get up to speed fast.'
+description: 'Frontend starterkit for Kodamera to get up to speed with frontend development fast.'
 core: 8.x
 core_version_requirement: ^8 || ^9
 base theme: 'stable'
 libraries:
-  - km_tailwind_d8_starterkit/global-styling
-  - km_tailwind_d8_starterkit/global-scripts
+  - km_frontend_starterkit/global-styling
+  - km_frontend_starterkit/global-scripts
 regions:
   branding: Branding
   header: Header

@@ -55,7 +55,7 @@ mix.browserSync({
   host: 'localhost',
   port: 3000,
   files: ["dist/css/index.css", "dist/js/index.js", "templates/**/*.html.twig"],
-  proxy: "http://km-tailwind-d8-starterkit.test/"
+  proxy: "http://km-frontend-starterkit.test/"
 });
 
 // Full API

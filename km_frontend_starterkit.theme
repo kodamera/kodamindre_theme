@@ -3,6 +3,6 @@
 /**
  * Implements hook_preprocess_menu_local_task().
  */
-function km_tailwind_d8_starterkit_preprocess_menu_local_task(&$variables) {
+function km_frontend_starterkit_preprocess_menu_local_task(&$variables) {
   $variables['link']['#options']['attributes']['class'][] = 'block py-3 px-4';
 }
