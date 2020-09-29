@@ -21,5 +21,5 @@ You have a bunch of different commands available, take a close look in `package.
 To start compiling and watching for changes in CSS and JavaScript, and start browserstack and the webpack dev server, run:
 `$ yarn run watch`.
 
-## Questions
+## Questions?
 Give Henrik Larsson or Vigfus Valgeirsson a shout!
