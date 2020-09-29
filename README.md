@@ -14,12 +14,12 @@ First things first, this starterkit is meant to be placed inside the themes fold
 2. Continue to next step.
 
 ### Development
-You're now ready start working with the starterkit.
+You're now ready start develop with the starterkit as a solid foundation.
 
-You have a bunch of different commands available, take a close look in `package.json`.
+You have a bunch of different commands available, take a closer look in `package.json`.
 
 To start compiling and watching for changes in CSS and JavaScript, and start browserstack and the webpack dev server, run:
 `$ yarn run watch`.
 
 ## Questions?
-Give Henrik Larsson or Vigfus Valgeirsson a shout!
+Give [Henrik Larsson](mailto:henrik@kodamera.se) or [Vigfus Valgeirsson](vigfus@kodamera.se) a shout!

@@ -1,5 +1,10 @@
 {
+  "name": "km_frontend_starterkit",
+  "description": "Front-end starter kit to quickly get up to speed with front-end development",
+  "version": "1.0",
   "private": true,
+  "author": "Kodamera AB",
+  "license": "ISC",
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
