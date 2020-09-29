@@ -4,7 +4,7 @@ You'll find complete documentation below [Utvecklng --> Frontend](https://kodame
 ## Get started
 First things first, this starterkit is meant to be placed inside the themes folder of a Drupal 8/9 setup. Make sure you have a Drupal setup ready before starting.
 
-1. Fork/copy this repo, DON'T clone it, this is just a starterkit that is only worked against if you iterate the starterkit.
+1. Fork/copy this repo, DON'T clone it, this is a starterkit that is supposed to serve as a starting point.
 2. Put it in a Drupal 8/9 theme folder of your choice.
 3. `$ cd path/to/theme` to the theme.
 4. Continue to next step.
