@@ -1,10 +1,13 @@
 {%
   set classes = [
-  'c-form-item__input',
-  'c-form-item__input--text',
-  'bg-gray-100',
-  'max-w-full',
-  'border border-solid border-gray-300'
-]
+    'bg-gray-100',
+    'max-w-full',
+    'border',
+    'border-solid',
+    'border-gray-300',
+    'px-5',
+    'py-4'
+  ]
 %}
+
 <input{{ attributes.addClass(classes) }} />{{ children }}

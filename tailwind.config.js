@@ -13,6 +13,10 @@ module.exports = {
     ],
   },
   theme: {
+    container: {
+      padding: '1rem',
+      margin: '0 auto',
+    },
     extend: {},
   },
   variants: {

@@ -1,11 +1,11 @@
 {%
   set classes = [
-    'c-form-item',
-    'c-form-item--' ~ type|clean_class,
-    'js-c-form-item',
-    title_display not in ['after', 'before'] ? 'c-form-item--no-label',
-    disabled == 'disabled' ? 'c-form-item--disabled',
-    errors ? 'c-form-item--error',
+    '--' ~ type|clean_class,
+    'js-form-item',
+    'js-form-item--' ~ type|clean_class,
+    title_display not in ['after', 'before'] ? '--no-label',
+    disabled == 'disabled' ? '--disabled',
+    errors ? '--error',
     'max-w-full'
   ]
 %}
@@ -36,7 +36,7 @@
     {{ label }}
   {% endif %}
   {% if errors %}
-    <div class="c-form-item--error-message">
+    <div class="--error-message">
       {{ errors }}
     </div>
   {% endif %}

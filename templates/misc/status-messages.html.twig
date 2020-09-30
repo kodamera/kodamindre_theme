@@ -2,8 +2,7 @@
   {% for type, messages in message_list %}
     {%
       set classes = [
-        'c-message',
-        'c-message--' ~ type,
+        '--' ~ type,
         'block',
         type = 'status' ? 'bg-green-500',
         type = 'warning' ? 'bg-yellow-500',
@@ -11,7 +10,7 @@
       ]
     %}
     <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>
-      <div class="o-wrapper">
+      <div class="container mx-auto">
         {% if type == 'error' %}
         <div role="alert">
           {% endif %}
@@ -19,9 +18,9 @@
             <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
           {% endif %}
           {% if messages|length > 1 %}
-            <ul class="c-messages__list">
+            <ul class="list-style-none">
               {% for message in messages %}
-                <li class="c-messages__item">{{ message }}</li>
+                <li class="block">{{ message }}</li>
               {% endfor %}
             </ul>
           {% else %}

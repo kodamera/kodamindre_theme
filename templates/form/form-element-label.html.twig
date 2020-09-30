@@ -1,15 +1,12 @@
 {%
   set classes = [
-    'c-form-item__label',
     'block',
     'cursor-pointer',
     'text-gray-700',
     title_display == 'before' ? 'mb-1',
     title_display == 'after' ? 'inline-block option',
     title_display == 'invisible' ? 'sr-only',
-    required ? 'c-label--required',
-    required ? 'js-form-required',
-    required ? 'form-required'
+    required ? '--required',
   ]
 %}
 {% if title is not empty or required -%}
