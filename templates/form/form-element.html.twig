@@ -1,12 +1,12 @@
 {%
   set classes = [
+    'max-w-full',
     '--' ~ type|clean_class,
     'js-form-item',
     'js-form-item--' ~ type|clean_class,
     title_display not in ['after', 'before'] ? '--no-label',
     disabled == 'disabled' ? '--disabled',
     errors ? '--error',
-    'max-w-full'
   ]
 %}
 {%

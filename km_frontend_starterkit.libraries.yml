@@ -6,6 +6,6 @@ global-styling:
 global-scripts:
   version: 1.0
   js:
-    dist/js/index.js: { preprocess: false, minified: true }
+    dist/js/index.drupal.es6.js: { preprocess: false, minified: true }
   dependencies:
     - core/drupal
