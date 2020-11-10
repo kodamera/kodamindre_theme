@@ -5,6 +5,9 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
+  corePlugins: {
+    container: false,
+  },
   purge: {
     mode: 'all',
     content: [
@@ -13,12 +16,22 @@ module.exports = {
     ],
   },
   theme: {
-    container: {
-      margin: '0 auto',
-      padding: '1rem',
+    typography: {
+      default: {
+        css: {
+          color: '#1A202C',
+          lineHeight: '1.375',
+          a: {
+            color: '#1A202C',
+            fontWeight: 'normal',
+            textDecoration: 'underline',
+          },
+        },
+      },
     },
     extend: {},
   },
+  // @TODO - See if all these are necessary.
   variants: {
     gap: ['responsive'],
     inset: ['responsive'],
@@ -34,5 +47,30 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
+    require('@tailwindcss/aspect-ratio'),
+    ({ addComponents, theme }) => {
+      addComponents({
+        ".container": {
+          margin: '0 auto',
+          padding: '0 1.25rem',
+          maxWidth: theme('screens.sm'),
+          width: '100%',
+
+          // Breakpoints
+          "@screen sm": {
+            maxWidth: theme('screens.md'),
+          },
+          "@screen md": {
+            maxWidth: theme('screens.md'),
+          },
+          "@screen lg": {
+            maxWidth: theme('screens.lg'),
+          },
+          "@screen xl": {
+            maxWidth: theme('screens.xl'),
+          },
+        },
+      });
+    },
   ],
 }
