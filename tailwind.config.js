@@ -16,6 +16,12 @@ module.exports = {
     ],
   },
   theme: {
+    transitionDuration: {
+      default: '150ms',
+    },
+    transitionTimingFunction: {
+      default: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    },
     typography: {
       default: {
         css: {
@@ -31,19 +37,7 @@ module.exports = {
     },
     extend: {},
   },
-  // @TODO - See if all these are necessary.
-  variants: {
-    gap: ['responsive'],
-    inset: ['responsive'],
-    margin: ['responsive', 'first', 'last', 'even', 'odd'],
-    opacity: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    padding: ['responsive', 'first', 'last', 'even', 'odd'],
-    scale: ['responsive', 'hover', 'focus', 'active', 'group-hover', 'group-focus'],
-    textAlign: ['responsive', 'first', 'last'],
-    textColor: ['responsive', 'hover', 'focus', 'active', 'group-hover', 'group-focus'],
-    transitionDuration: ['responsive', 'hover', 'focus', 'active'],
-    translate: ['responsive', 'hover', 'focus', 'active', 'group-hover', 'group-focus'],
-  },
+  variants: {},
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
