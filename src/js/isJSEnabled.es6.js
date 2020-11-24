@@ -1,3 +1,5 @@
+// @file isJSEnabled.es6.js
+
 /**
  * Removes `has-no-js` class from body tag if JavaScript is enabled.
  * @type {Object}

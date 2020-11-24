@@ -19,7 +19,7 @@ require('laravel-mix-purgecss');
  |--------------------------------------------------------------------------
  */
 
-mix.js('src/js/index.drupal.es6.js', 'dist/js');
+mix.js('src/js/**/*.drupal.js', 'dist/js/index.drupal.js');
 
 /*
  |--------------------------------------------------------------------------

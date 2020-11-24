@@ -1,10 +1,10 @@
-// @file header.drupal.es6.js
+// @file isJSEnabled.drupal.js
 
 import isJSEnabled from './isJSEnabled.es6';
 
 (({ behaviors }) => {
   behaviors.isJSEnabled = {
-    attach(context) {
+    attach() {
      isJSEnabled();
     }
   };
