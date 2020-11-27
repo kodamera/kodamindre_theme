@@ -5,17 +5,10 @@
 %}
 
 <div class="prose md:prose-md lg:prose-lg xl:prose-xl">
-  {% if label_hidden %}
-    {% if multiple %}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    {% else %}
-      {% for item in items %}
-        {{ item.content }}
-      {% endfor %}
-    {% endif %}
-  {% else %}
-    {{ item.content }}
+  {% if not label_hidden %}
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
   {% endif %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 </div>
