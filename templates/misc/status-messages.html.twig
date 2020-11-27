@@ -4,9 +4,10 @@
       set classes = [
         '--' ~ type,
         'block',
-        type == 'status' ? 'bg-green-500',
-        type == 'warning' ? 'bg-yellow-500',
-        type == 'error' ? 'bg-red-500',
+        'py-6',
+        type == 'status' ? 'bg-green-200 text-green-900 font-bold',
+        type == 'warning' ? 'bg-yellow-100 text-yellow-900 font-bold',
+        type == 'error' ? 'bg-red-100 text-red-900 font-bold',
       ]
     %}
     <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>

@@ -1,0 +1,14 @@
+{%
+  set classes = [
+    has_parent ? 'js-form-wrapper',
+    has_parent ? 'form-wrapper',
+  ]
+%}
+
+{%
+  set container_padding = [
+    'px-0',
+  ]
+%}
+
+<div{{ attributes.addClass(classes).addClass(container_padding) }}>{{ children }}</div>
