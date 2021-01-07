@@ -5,9 +5,11 @@
         '--' ~ type,
         'block',
         'py-6',
-        type == 'status' ? 'bg-green-200 text-green-900 font-bold',
-        type == 'warning' ? 'bg-yellow-100 text-yellow-900 font-bold',
-        type == 'error' ? 'bg-red-100 text-red-900 font-bold',
+        'font-bold',
+        'text-center',
+        type == 'status' ? 'bg-green-200 text-green-900',
+        type == 'warning' ? 'bg-yellow-100 text-yellow-900',
+        type == 'error' ? 'bg-red-100 text-red-900',
       ]
     %}
     <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>

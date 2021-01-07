@@ -1,10 +1,6 @@
 // Tailwind config file, see: https://tailwindcss.com/docs/configuration
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
   corePlugins: {
     container: false,
   },
