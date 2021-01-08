@@ -17,7 +17,7 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  <div>
+  <div class="container mx-auto">
     {% if primary %}
       <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
       <ul{{ attributes.removeClass(tabs_classes).addClass(list_classes) }}>{{ primary }}</ul>
