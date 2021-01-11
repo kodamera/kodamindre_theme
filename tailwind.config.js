@@ -21,12 +21,29 @@ module.exports = {
     typography: {
       default: {
         css: {
-          color: '#1A202C',
-          lineHeight: '1.375',
+          fontFamily: 'var(--font-serif)',
+          lineHeight: '1.5',
+          h2: {
+            fontFamily: 'var(--font-sans)',
+          },
+          h3: {
+            fontFamily: 'var(--font-sans)',
+          },
+          h4: {
+            fontFamily: 'var(--font-sans)',
+          },
           a: {
-            color: '#1A202C',
+            color: 'var(--action)',
+            '&:hover': {
+              color: 'var(--action-active)',
+            },
+            '&:focus': {
+              color: 'var(--action-active)',
+            },
             fontWeight: 'normal',
             textDecoration: 'underline',
+            transition: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDuration: '150',
           },
         },
       },

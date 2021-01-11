@@ -8,16 +8,14 @@
 /* Base CSS */
 @import "tailwindcss/base";
 @import "./base.css";
+@import "./colors.css";
+@import "./fonts.css";
 
 /* Components CSS */
 @import "tailwindcss/components";
-@import "./components.css";
 
 /* purgecss end ignore */
 
 /* Utility CSS */
 @import "tailwindcss/utilities";
-@import "./utilities.css";
-
-/* Objects - undecorated design patterns */
-@import "./objects/all.css";
+@import "./utilities/all.css";
