@@ -1,0 +1,14 @@
+{% set block_classes = [
+    'mt-6',
+    'first:mt-0',
+    logged_in ? 'hey'
+  ]
+%}
+
+<div{{ attributes.addClass(block_classes) }}>
+  {{ title_prefix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+  {{ title_suffix }}
+</div>
