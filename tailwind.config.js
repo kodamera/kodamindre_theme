@@ -42,7 +42,8 @@ module.exports = {
             },
             fontWeight: 'normal',
             textDecoration: 'underline',
-            transition: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            transition: 'color',
+            transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDuration: '150',
           },
         },
@@ -50,7 +51,11 @@ module.exports = {
     },
     extend: {},
   },
-  variants: {},
+  variants: {
+      extend: {
+        margin: ['first', 'last', 'responsive'],
+      }
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
