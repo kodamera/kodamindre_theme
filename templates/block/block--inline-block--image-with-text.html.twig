@@ -1,0 +1,25 @@
+<div{{ attributes }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% block content %}
+    <div class="grid grid-cols-2 gap-12 lg:gap-24">
+      <div class="flex flex-col items-start col-span-2 md:col-span-1 md:justify-center">
+        <div class="text-gray-700">
+          {{ content.field_label }}
+        </div>
+        <{{ content.field_heading_level.0["#markup"] }} class="mt-2 text-3xl font-bold tracking-tight text-gray-900">
+          {{ content.field_heading }}
+        </{{ content.field_heading_level.0["#markup"] }}>
+        <div class="mt-4 text-lg text-gray-500">
+          {{ content.field_text }}
+        </div>
+        <a href="{{ content.field_link.0["#url"] }}" class="inline-flex mt-6 bg-gray-200 text-gray-900 w-auto cursor-pointer px-6 py-3">
+          {{ content.field_link.0["#title"] }}
+        </a>
+      </div>
+      <div class="flex col-span-2 items-center md:col-span-1{% if content.field_image_alignment.0["#markup"] == 'left' %} md:order-first{% endif %}">
+        {{ content.field_image_image_with_text }}
+      </div>
+    </div>
+  {% endblock %}
+</div>

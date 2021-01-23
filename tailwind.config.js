@@ -65,7 +65,6 @@ module.exports = {
         ".container": {
           margin: '0 auto',
           padding: '0 1.25rem',
-          maxWidth: theme('screens.sm'),
           width: '100%',
 
           // Breakpoints
@@ -73,10 +72,10 @@ module.exports = {
             maxWidth: theme('screens.md'),
           },
           "@screen md": {
-            maxWidth: theme('screens.md'),
+            maxWidth: theme('screens.lg'),
           },
           "@screen lg": {
-            maxWidth: theme('screens.lg'),
+            maxWidth: theme('screens.xl'),
           },
           "@screen xl": {
             maxWidth: theme('screens.xl'),
