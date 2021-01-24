@@ -1,0 +1,39 @@
+{% set block_classes = [
+  logged_in ? 'mt-0 p-0 mb-6' : 'mt-6 first:mt-0'
+] %}
+
+{% set heading_level = content.field_heading_level.0["#markup"] %}
+
+<div{{ attributes.addClass(block_classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  {% block content %}
+    <div class="relative">
+      <div class="relative sm:overflow-hidden">
+        <div class="absolute inset-0 object-cover">
+          {{ content.field_image_image_with_text_over }}
+          <div class="absolute inset-0 bg-gray-700" style="mix-blend-mode: multiply;"></div>
+        </div>
+        <div class="relative px-6 max-w-screen-xl mx-auto py-16 sm:py-24 lg:py-32 xl:py-48">
+          <div class="text-center text-xl text-gray-300">
+            {{ content.field_label }}
+          </div>
+          <{{ heading_level }} class="text-center mt-2 text-white text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl">
+            {{ content.field_heading }}
+          </{{ heading_level }}>
+          <div class="mt-6 max-w-lg mx-auto text-center text-xl text-gray-300 sm:max-w-3xl">
+            {{ content.field_text }}
+          </div>
+          <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
+            <div class="text-center">
+              <a href="{{ content.field_link.0["#url"] }}" class="inline-block mt-6 bg-gray-200 text-gray-900 w-auto cursor-pointer px-6 py-3">
+                {{ content.field_link.0["#title"] }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</div>
