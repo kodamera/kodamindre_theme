@@ -1,25 +1,44 @@
+{% set block_classes %}
+  {{ logged_in ? 'mt-0 p-0 mb-6 bg-transparent' : 'mt-6 first:mt-0' }}
+{% endset %}
+
 {% set heading_classes = [
   'font-bold',
   'mt-2',
+  'p-0',
+  'mb-0',
   content.field_heading_level.0["#markup"] == 'h1' ? 'text-3xl md:text-4xl lg:text-5xl' : '',
   content.field_heading_level.0["#markup"] == 'h2' ? 'text-2xl md:text-3xl lg:text-4xl' : '',
   content.field_heading_level.0["#markup"] == 'h3' ? 'text-xl md:text-2xl lg:text-3xl' : '',
   content.field_heading_level.0["#markup"] == 'h4' ? 'text-xl md:text-2xl lg:text-3xl'  : '',
-  logged_in ? 'mt-0 p-0 mb-6' : 'mt-6 first:mt-0',
 ] %}
+
+{% set image_aligment %}
+  {{ content.field_image_alignment.0["#markup"] }}
+{% endset %}
+
+{% set content_alignment %}
+  {% if content.field_content_alignment.0["#markup"] == 'top' %}
+    {{ 'items-start' }}
+  {% elseif content.field_content_alignment.0["#markup"] == 'center' %}
+    {{ 'items-center' }}
+  {% elseif content.field_content_alignment.0["#markup"] == 'bottom' %}
+    {{ 'items-end' }}
+  {% endif %}
+{% endset %}
 
 {% set heading_level = content.field_heading_level.0["#markup"] %}
 
-<div{{ attributes.addClass(logged_in ? 'p-0 bg-transparent') }}>
+<div{{ attributes.addClass(block_classes) }}>
   {{ title_prefix }}
   {{ title_suffix }}
   {% block content %}
-    <div class="grid grid-cols-2 md:items-center">
-      <div class="flex flex-col pb-12 items-start col-span-2 md:pb-0 md:col-span-1 xl:p-24{% if content.field_image_alignment.0["#markup"] == 'left' %} mr-auto md:pl-12 xl:pr-0{% else %} ml-auto md:pr-12 xl:pl-0{% endif %}">
+    <div class="grid grid-cols-2 gap-y-12 md:gap-x-12 xl:gap-24{{ content_alignment }}">
+      <div class="flex flex-col items-start col-span-2 md:pb-0 md:col-span-1{% if image_alignment == 'left' %} mr-auto{% else %} ml-auto{% endif %}">
         <div class="text-gray-700">
           {{ content.field_label }}
         </div>
-        <{{ heading_level }} {{ attributes.addClass(heading_classes) }}>
+        <{{ heading_level }} {{ attributes.addClass(heading_classes).removeClass(block_classes) }}>
           {{ content.field_heading }}
         </{{ heading_level }}>
         <div class="mt-4 text-lg text-gray-500">
