@@ -4,7 +4,9 @@
   ]
 %}
 
-<div class="prose md:prose-md lg:prose-lg xl:prose-xl">
+<div class="prose md:prose-md lg:prose-lg xl:prose-xl bg-transparent">
+  {{ title_prefix }}
+  {{ title_suffix }}
   {% for item in items %}
     {{ item.content }}
   {% endfor %}

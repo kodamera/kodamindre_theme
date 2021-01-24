@@ -1,19 +1,31 @@
-<div{{ attributes }}>
+{% set heading_classes = [
+  'font-bold',
+  'mt-2',
+  content.field_heading_level.0["#markup"] == 'h1' ? 'text-3xl md:text-4xl lg:text-5xl' : '',
+  content.field_heading_level.0["#markup"] == 'h2' ? 'text-2xl md:text-3xl lg:text-4xl' : '',
+  content.field_heading_level.0["#markup"] == 'h3' ? 'text-xl md:text-2xl lg:text-3xl' : '',
+  content.field_heading_level.0["#markup"] == 'h4' ? 'text-xl md:text-2xl lg:text-3xl'  : '',
+  logged_in ? 'mt-0 p-0 mb-6' : 'mt-6 first:mt-0',
+] %}
+
+{% set heading_level = content.field_heading_level.0["#markup"] %}
+
+<div{{ attributes.addClass(logged_in ? 'p-0 bg-transparent') }}>
   {{ title_prefix }}
   {{ title_suffix }}
   {% block content %}
-    <div class="grid grid-cols-2 gap-12 lg:gap-24">
-      <div class="flex flex-col items-start col-span-2 md:col-span-1 md:justify-center">
+    <div class="grid grid-cols-2 md:items-center">
+      <div class="flex flex-col pb-12 items-start col-span-2 md:pb-0 md:col-span-1 xl:p-24{% if content.field_image_alignment.0["#markup"] == 'left' %} mr-auto md:pl-12 xl:pr-0{% else %} ml-auto md:pr-12 xl:pl-0{% endif %}">
         <div class="text-gray-700">
           {{ content.field_label }}
         </div>
-        <{{ content.field_heading_level.0["#markup"] }} class="mt-2 text-3xl font-bold tracking-tight text-gray-900">
+        <{{ heading_level }} {{ attributes.addClass(heading_classes) }}>
           {{ content.field_heading }}
-        </{{ content.field_heading_level.0["#markup"] }}>
+        </{{ heading_level }}>
         <div class="mt-4 text-lg text-gray-500">
           {{ content.field_text }}
         </div>
-        <a href="{{ content.field_link.0["#url"] }}" class="inline-flex mt-6 bg-gray-200 text-gray-900 w-auto cursor-pointer px-6 py-3">
+        <a href="{{ content.field_link.0["#url"] }}" class="inline-block mt-6 bg-gray-200 text-gray-900 w-auto cursor-pointer px-6 py-3">
           {{ content.field_link.0["#title"] }}
         </a>
       </div>
