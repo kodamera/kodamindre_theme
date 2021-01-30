@@ -8,8 +8,19 @@ module.exports = {
     mode: 'all',
     content: [
       'templates/**/*.html.twig',
-      'src/js/**/*.js'
+      'src/js/**/*.js',
+      '../../../modules/contrib/tailwind_lb/*/**/*.html.twig'
     ],
+    options: {
+      safelist: [
+        'bg-gray-100',
+        'md:col-span-3',
+        'md:col-span-4',
+        'md:col-span-6',
+        'md:col-span-8',
+        'md:col-span-9',
+      ],
+    }
   },
   theme: {
     transitionDuration: {

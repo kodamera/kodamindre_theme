@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -26,18 +25,10 @@ mix.js('src/js/**/*.drupal.js', 'dist/js/index.drupal.js');
  | CSS.
  |--------------------------------------------------------------------------
  */
-mix
-  .postCss('src/css/index.css', 'dist/css')
+mix.postCss('src/css/index.css', 'dist/css')
   .options({
     postCss: [tailwindcss('./tailwind.config.js')]
-  })
-  .purgeCss({
-    content: [
-      path.join(__dirname, 'templates/**/*.html.twig'),
-      path.join(__dirname, 'src/js/**/*.js'),
-    ],
-    whitelistPatterns: [],
-})
+});
 
 /*
  |--------------------------------------------------------------------------

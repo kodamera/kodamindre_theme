@@ -1,6 +1,8 @@
 {%
   set classes = [
     'max-w-full',
+    'mt-6',
+    'first:mt-0',
     '--' ~ type|clean_class,
     'js-form-item',
     'js-form-item--' ~ type|clean_class,
@@ -12,7 +14,8 @@
 {%
   set description_classes = [
     'text-sm',
-    description_display == 'after' ? 'mb-4',
+    'text-gray-500',
+    description_display == 'after' ? 'mt-2',
     description_display == 'invisible' ? 'sr-only',
   ]
 %}
