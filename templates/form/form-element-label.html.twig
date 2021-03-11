@@ -11,6 +11,14 @@
     required ? '--required',
   ]
 %}
+
+{% set isRequired %}
+  {% if required %}
+    <span class="text-red-900"><sup>*</sup></span>
+  {% else %}
+  {% endif %}
+{% endset  %}
+
 {% if title is not empty or required -%}
-  <label{{ attributes.addClass(classes) }}>{{ title }}</label>
+  <label{{ attributes.addClass(classes) }}>{{ title }}{{ isRequired }}</label>
 {%- endif %}
