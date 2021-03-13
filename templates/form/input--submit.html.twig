@@ -2,13 +2,13 @@
   set classes = [
     'max-w-full',
     'first:mr-4',
-    'text-gray-900',
     'inline-block',
     'cursor-pointer',
     'px-6',
     'py-4',
-    'rounded-sm',
-    'text-sm'
+    'rounded-md',
+    'text-sm',
+    'transition',
   ]
 %}
 <input{{ attributes.addClass(classes).removeClass('button', 'button--primary') }} />{{ children }}

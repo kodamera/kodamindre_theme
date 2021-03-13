@@ -1,8 +1,63 @@
 <?php
 
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+
 /**
  * Implements hook_preprocess_menu_local_task().
  */
 function km_frontend_starterkit_preprocess_menu_local_task(&$variables) {
   $variables['link']['#options']['attributes']['class'][] = 'block py-3 px-4';
 }
+
+/**
+ * Form_alter()
+ */
+function km_frontend_starterkit_form_alter(&$form, $form_state, $form_id) {
+  // Adding button/links to Register and Forgot password.
+  if (strpos($form_id, 'user_login_form') !== FALSE) {
+    // Move actions before new elements.
+    $form['actions']['#weight'] = '98';
+
+    // Add new class to submit button.
+    $form['actions']['submit']['#attributes']['class'][] = 'bg-blue-700 text-white font-bold w-full mt-10 max-w-lg hover:bg-blue-800 focus:bg-blue-800';
+
+    // New wrapper.
+    $form['more-links'] = [
+      '#type' => 'container',
+      '#weight' => '99',
+      '#attributes' => ['class' => ['flex flex-col mt-4']],
+    ];
+
+    // Forgot password link.
+    $form['more-links']['forgot_password_link'] = [
+      '#type' => 'link',
+      '#url' => Url::fromRoute('user.pass'),
+      '#title' => t('Forgot your password?'),
+      '#attributes' => ['class' => [
+        'text-blue-700',
+        'font-bold',
+        'transition',
+        'hover:text-blue-800',
+        'focus:text-blue-800',
+      ]],
+      '#weight' => '2',
+    ];
+  }
+
+  // Changing name of Reset button.
+  if (strpos($form_id, 'user_pass') !== FALSE) {
+    $form['actions']['submit']['#value'] = t('Reset');
+
+    // Add new class to submit button.
+    $form['actions']['submit']['#attributes']['class'][] = 'bg-blue-700 text-white font-bold w-full mt-10 max-w-lg hover:bg-blue-800 focus:bg-blue-800';
+  }
+
+  // Changing name of Reset button.
+  if (strpos($form_id, 'user_register') !== FALSE) {
+
+    // Add new class to submit button.
+    $form['actions']['submit']['#attributes']['class'][] = 'bg-blue-700 text-white font-bold w-full mt-10 max-w-lg hover:bg-blue-800 focus:bg-blue-800';
+  }
+}
+

@@ -8,9 +8,7 @@
   {% endif %}
 
   {# Main content, includes 'page.content'. #}
-  {% include directory ~ '/templates/layout/main.html.twig' with {
-    main_classes: 'container mt-12 lg:mt-16',
-  } %}
+  {% include directory ~ '/templates/partials/main.html.twig'with { main_classes: 'container mx-auto my-12 md:my-16' } %}
 
   {# Post content. #}
   {% if page.post_content %}

@@ -9,7 +9,8 @@ module.exports = {
     content: [
       'templates/**/*.html.twig',
       'src/js/**/*.js',
-      '../../../modules/contrib/tailwind_lb/*/**/*.html.twig'
+      '../../../modules/contrib/tailwind_lb/*/**/*.html.twig',
+      'km_frontend_starterkit.theme'
     ],
     options: {
       safelist: [
@@ -24,10 +25,10 @@ module.exports = {
   },
   theme: {
     transitionDuration: {
-      default: '150ms',
+      DEFAULT: '150ms',
     },
     transitionTimingFunction: {
-      default: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
     },
     typography: {
       default: {
@@ -60,7 +61,11 @@ module.exports = {
         },
       },
     },
-    extend: {},
+    extend: {
+      minHeight: {
+        'half-screen': '50vh',
+      },
+    },
   },
   variants: {
       extend: {
@@ -70,7 +75,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/ui'),
-    require('@tailwindcss/aspect-ratio'),
     ({ addComponents, theme }) => {
       addComponents({
         ".container": {

@@ -4,10 +4,12 @@
     'border',
     'border-solid',
     'border-gray-500',
-    'px-4',
-    'py-3',
+    'p-4',
     'rounded-sm',
-    'text-sm'
+    'text-sm',
+    'transition',
+    'hover:border-blue-500',
+    'focus:border-blue-500',
   ]
 %}
 <textarea{{ attributes.addClass(classes) }}>{{ value }}</textarea>
