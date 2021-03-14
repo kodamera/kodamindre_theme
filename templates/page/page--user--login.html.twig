@@ -1,21 +1,5 @@
-<div class="flex flex-col min-h-screen lg:flex-row lg:items-stretch">
-  <div class="flex flex-col p-6 flex-shrink-0 md:pb-16 md:px-16 lg:py-12 xl:px-24 2xl:px-32">
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-      <img class="w-12 h-12" src="/{{ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
-    </a>
-    <div class="sr-only"><a id="main-content" tabindex="-1"></a></div>
-    <div class="flex flex-col flex-1 flex-shrink-0 max-w-xl mt-6 md:mt-8 lg:mt-0 lg:justify-center">
-      {% block header %}
-        <h1 class="text-2xl leading-snug md:text-3xl md:leading-snug lg:text-4xl lg:leading-snug lg:-mt-4 xl:-mt-8 xl:text-5xl xl:leading-snug">{{ 'Log in'|t }}</h1>
-      {% endblock %}
-      {% block content %}
-      <div class="mt-6 max-w-lg lg:mt-12">
-        {{ page.content }}
-      </div>
-      {% endblock %}
-    </div>
-  </div>
-  <div class="flex w-full h-full relative min-h-half-screen lg:h-full lg:min-h-screen">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/{{ directory }}/login.jpg')"></div>
-  </div>
-</div>
+{% extends 'page--system.html.twig' %}
+
+{% block header %}
+  <h1 class="text-2xl leading-snug md:text-3xl md:leading-snug lg:text-4xl lg:leading-snug xl:text-5xl xl:leading-snug">{{ 'Log in'|t }}</h1>
+{% endblock %}

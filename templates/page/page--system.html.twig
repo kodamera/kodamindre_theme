@@ -1,0 +1,21 @@
+<div class="flex flex-col lg:flex-row">
+  <div class="flex flex-col flex-shrink-0">
+    <a class="px-6 my-6 md:my-8 md:px-16 xl:my-12 xl:px-24 2xl:px-32" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <img class="w-12 h-12" src="/{{ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
+    </a>
+    <div class="sr-only"><a id="main-content" tabindex="-1"></a></div>
+    <div class="flex flex-col flex-1 w-full max-w-screen-md px-6 md:px-16 lg:mb-16 lg:justify-center xl:mb-20 xl:px-24 2xl:px-32 2xl:mb-28">
+      {% block header %}
+        <h1 class="text-2xl leading-snug md:text-3xl md:leading-snug lg:text-4xl lg:leading-snug xl:text-5xl xl:leading-snug">{{ 'Log in'|t }}</h1>
+      {% endblock %}
+      {% block content %}
+        <div class="mt-6 lg:mt-12">
+          {{ page.content }}
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+  <div class="w-full relative min-h-half-screen lg:min-h-screen">
+    <div class="absolute inset-0 bg-cover bg-center object-cover" style="background-image: url('/{{ directory }}/login.jpg')"></div>
+  </div>
+</div>
