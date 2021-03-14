@@ -2,6 +2,7 @@
 
 use Drupal\Core\Url;
 use Drupal\user\UserInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess_menu_local_task().
@@ -11,9 +12,28 @@ function km_frontend_starterkit_preprocess_menu_local_task(&$variables) {
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK() for contact form suggestion.
+ */
+function km_frontend_starterkit_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'form__' . $variables['element']['#form_id'];
+}
+
+/**
  * Form_alter()
  */
 function km_frontend_starterkit_form_alter(&$form, $form_state, $form_id) {
+  // Search form.
+  if (strpos($form_id, 'search_form') !== FALSE) {
+    $form['basic']['#attributes']['class'][] = 'flex items-end flex-wrap';
+    $form['basic']['submit']['#attributes']['class'][] = 'mt-4 bg-blue-700 text-white border-blue-700 font-bold w-full max-w-lg hover:border-blue-800 focus:border-blue-800 hover:bg-blue-800 focus:bg-blue-800';
+  }
+
+  // Search block form.
+  if (strpos($form_id, 'search_block_form') !== FALSE) {
+    $form['actions']['submit']['#attributes']['class'][] = 'ml-4 bg-blue-700 text-white border-blue-700 font-bold w-full max-w-lg hover:border-blue-800 focus:border-blue-800 hover:bg-blue-800 focus:bg-blue-800';
+  }
+
+
   // Adding button/links to Register and Forgot password.
   if (strpos($form_id, 'user_login_form') !== FALSE) {
     // Move actions before new elements.
@@ -60,4 +80,3 @@ function km_frontend_starterkit_form_alter(&$form, $form_state, $form_id) {
     $form['actions']['submit']['#attributes']['class'][] = 'bg-blue-700 border-blue-700 text-white font-bold w-full mt-10 max-w-lg hover:border-blue-800 focus:border-blue-800 hover:bg-blue-800 focus:bg-blue-800';
   }
 }
-

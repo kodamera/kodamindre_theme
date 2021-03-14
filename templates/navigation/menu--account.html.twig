@@ -1,0 +1,55 @@
+{% import _self as menus %}
+
+{#
+We call a macro which calls itself to render the full tree.
+@see http://twig.sensiolabs.org/doc/tags/macro.html
+1. We use menu_name (see above) to create a CSS class name from it.
+By doing so, every menu will get it's own specific class name so that
+we avoid class clashes ang generate specific markup.
+See https://www.drupal.org/node/2649076
+#}
+{{ menus.menu_links(items, attributes, 0, menu_name) }}
+
+{% macro menu_links(items, attributes, menu_level, menu_name) %}
+  {% import _self as menus %}
+
+  {%
+    set menu_classes = [
+    'list-style-none',
+  ]
+  %}
+
+  {% if items %}
+    <ul{{ attributes.addClass(menu_classes) }}>
+      {% for item in items %}
+        {%
+          set item_classes = [
+          'inline-block',
+          item.in_active_trail ? 'underline',
+        ]
+        %}
+        {%
+          set link_classes = [
+          'block',
+          'text-gray-700',
+          'text-sm',
+          'py-3',
+          'px-4',
+          'hover:underline',
+          'focus:underline',
+          item.in_active_trail ? 'underline',
+        ]
+        %}
+        <li {{ item.attributes.addClass(item_classes) }}>
+          {{
+          link(
+            item.title,
+            item.url,
+            item.attributes.removeClass(item_classes).removeClass(button_classes).addClass(link_classes)
+          )
+          }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

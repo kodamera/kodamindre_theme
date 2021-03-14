@@ -2,8 +2,11 @@
 
 {% block header %}
   <h1 class="text-2xl leading-snug mt-6 md:text-3xl md:leading-snug md:mt-12 lg:text-4xl lg:leading-snug xl:text-5xl xl:leading-snug">{{ "You don't have access to this page!"|t }} 😢</h1>
-  <a class="text-blue-700 mt-6 font-bold transition hover:text-blue-800 focus:text-blue-800 lg:mt-12" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-    {{ 'Go back to homepage'|t }}
+  <div class="mt-6 lg:mt-12">
+    {{ page.search }}
+  </div>
+  <a class="text-blue-700 mt-6 font-bold transition hover:text-blue-800 focus:text-blue-800" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+    {{ 'Or go back to homepage'|t }}
   </a>
 {% endblock %}
 

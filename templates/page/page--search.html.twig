@@ -1,16 +1,20 @@
 <div class="flex flex-col min-h-screen">
+  {# Header, includes 'page.branding' and 'page.header'. #}
   {% include directory ~ '/templates/partials/header.html.twig' %}
 
+  {# Pre content. #}
   {% if page.pre_content %}
     {{ page.pre_content }}
   {% endif %}
 
   {# Main content, includes 'page.content'. #}
-  {% include directory ~ '/templates/partials/main.html.twig' %}
+  {% include directory ~ '/templates/partials/main.html.twig'with { main_classes: 'container mx-auto my-12 md:my-16' } %}
 
+  {# Post content. #}
   {% if page.post_content %}
     {{ page.post_content }}
   {% endif %}
 
+  {# Footer. #}
   {% include directory ~ '/templates/partials/footer.html.twig' %}
 </div>

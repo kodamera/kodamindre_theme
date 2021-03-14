@@ -8,10 +8,12 @@ libraries:
   - km_frontend_starterkit/global-scripts
 regions:
   branding: Branding
-  header: Header
+  main_navigation: Main navigation
+  user_navigation: User navigation
+  search: Site search
   pre_content: Pre content
   content: Content
   post_content: Post content
-  footer: Footer
+  footer_navigation: Footer navigation
 ckeditor_stylesheets:
   - css/ckeditor.css
