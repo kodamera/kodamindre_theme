@@ -9,7 +9,7 @@
               <a class="block px-2 text-sm hover:underline focus:underline py-2{{ loop.last ? ' text-gray-900' : ' text-gray-700' }}" href="{{ item.url }}">{{ item.text }}</a>
               {% if not loop.last %}
                 <span class="text-gray-700 text-sm pl-1">/</span>
-                {% endif %}
+              {% endif %}
             {% else %}
               {{ item.text }}
             {% endif %}
