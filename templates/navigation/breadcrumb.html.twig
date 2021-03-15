@@ -2,11 +2,14 @@
   <nav role="navigation" aria-labelledby="system-breadcrumb">
     <h2 id="system-breadcrumb" class="sr-only">{{ 'Breadcrumb'|t }}</h2>
     <div class="container mx-auto">
-      <ol class="list-style-none -mx-4">
+      <ol class="list-style-none -mx-2">
         {% for item in breadcrumb %}
-          <li class="inline-block">
+          <li class="inline-flex items-center">
             {% if item.url %}
-              <a class="block px-4 py-2" href="{{ item.url }}">{{ item.text }}</a>
+              <a class="block px-2 py-2 text-gray-700" href="{{ item.url }}">{{ item.text }}</a>
+              {% if not loop.last %}
+                <span class="text-gray-700 text-sm pl-1">/</span>
+                {% endif %}
             {% else %}
               {{ item.text }}
             {% endif %}
