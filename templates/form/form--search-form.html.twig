@@ -4,6 +4,10 @@
   ]
 %}
 
-<form{{ attributes.addClass(classes) }}>
-  {{ children }}
-</form>
+<div class="mb-6">
+  <h1 class="mb-6 font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">{{ 'Search'|t }}</h1>
+  <form{{ attributes.addClass(classes) }}>
+    {{ children }}
+  </form>
+</div>
+

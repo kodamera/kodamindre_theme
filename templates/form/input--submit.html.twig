@@ -7,9 +7,11 @@
     'border-soild',
     'px-6',
     'py-4',
+    'outline-none',
     'rounded-md',
     'text-sm',
     'transition',
+    'focus:outline-none'
   ]
 %}
 <input{{ attributes.addClass(classes).removeClass('button', 'button--primary') }} />{{ children }}
