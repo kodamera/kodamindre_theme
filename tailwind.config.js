@@ -62,6 +62,11 @@ module.exports = {
       },
     },
     extend: {
+      transitionDuration: {
+        100: '100ms',
+        200: '200ms',
+        300: '300ms',
+      },
       minHeight: {
         'half-screen': '50vh',
       },
