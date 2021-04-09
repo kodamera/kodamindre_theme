@@ -79,13 +79,13 @@
   </p>
 
   {% if content.field_event_image is not empty %}
-    <figure class="flex flex-col -mx-6 mb-5 md:-mx-12 md:mb-6 lg:mb-8">
+    <figure class="flex flex-col mb-5 md:mb-6 lg:mb-8">
       <div class="mb-2">
         {{ content.field_event_image }}
       </div>
-      <figcaption class="flex text-gray-600 justify-between mx-6 md:mx-12">
+      <figcaption class="flex text-gray-600 justify-between">
         <span>{{ content.field_event_image_byline }}</span>
-        <span class="flex flex-shrink-0 ml-6 text-right">{{ 'Photographer'|t }}:<span class="ml-1">{{ content.field_event_image_photographer }}</span></span>
+        <span class="flex flex-shrink-0 text-right">{{ 'Photographer'|t }}:<span class="ml-1">{{ content.field_event_image_photographer }}</span></span>
       </figcaption>
     </figure>
   {% endif %}
@@ -134,8 +134,8 @@
       {% else %}
         <div>
           <a
-            class="inline-flex items-center bg-cta-bg group text-cta-text font-bold py-4 px-6 transition-background duration-150 ease-in-out hover:bg-cta-bg-active"
-            href="{{ content.field_event_registration }}"
+            class="inline-flex items-center bg-blue-900 group text-white font-bold py-4 px-6 transition-background duration-150 ease-in-out hover:bg-cta-bg-active"
+            href="{{ content.field_event_registration.uri }}"
             rel="nofollow noreferrer"
             target="_blank"
             aria-label="{{ 'Register for this event (external link)'|t }}"
