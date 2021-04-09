@@ -1,0 +1,159 @@
+{% set classes = [
+    'container',
+    'mx-auto',
+    'my-12',
+    'md:max-w-screen-sm',
+    'md:my-24',
+    'lg:max-w-screen-md',
+  ]
+%}
+
+{# Set up basic date variables #}
+{% set start_date = node.field_event_start_date.date %}
+{% set end_date = node.field_event_end_date.date %}
+{% set multiple_dates = start_date|date('Y-m-d') < end_date|date('Y-m-d') %}
+{% set multiple_months = start_date|date('Y-m') < end_date|date('Y-m') %}
+{% set multiple_years = start_date|date('Y') < end_date|date('Y') %}
+
+{% set date_format %}
+  {% if langcode == 'sv' %}
+    {{ 'j M Y' }}
+  {% else %}
+    {{ 'M j Y' }}
+  {% endif %}
+{% endset %}
+
+{% set date_format_short %}
+  {% if langcode == 'sv' %}
+    {{ 'j M' }}
+  {% else %}
+    {{ 'M j' }}
+  {% endif %}
+{% endset %}
+
+{% set date_time_format %}
+  {{ 'H:i' }}
+{% endset %}
+
+{% set date_output %}
+  {% if multiple_dates and multiple_months and multiple_years %}
+    <span class="sr-only">{{ 'Start date'|t }}</span>
+    <time datetime="{{ start_date }}">{{ start_date|date(date_format) }}</time>
+    <div aria-hidden="true">&nbsp;–&nbsp;</div>
+    <span class="sr-only">{{ 'End date'|t }}</span>
+    <time datetime="{{ end_date }}">{{ end_date|date(date_format) }}</time>
+  {% elseif multiple_dates and not multiple_months and not multiple_years %}
+    <span class="sr-only">{{ 'Start date'|t }}</span>
+    <time datetime="{{ start_date|date('Y-d') }}">{{ start_date|date(date_format_short) }}</time>
+    <div aria-hidden="true">&nbsp;–&nbsp;</div>
+    <span class="sr-only">{{ 'End date'|t }}</span>
+    <time datetime="{{ end_date|date('Y-d') }}">{{ end_date|date(date_format_short) }}</time>
+    <div aria-hidden="true">&nbsp;</div>
+    <span class="sr-only">{{ 'Year'|t }}</span>
+    <time datetime="{{ end_date|date('Y') }}">{{ end_date|date('Y') }}</time>
+  {% else %}
+    <span class="sr-only">{{ 'Start date'|t }}</span>
+    <time datetime="{{ start_date }}">{{ start_date|date(date_format) }}</time>
+    <div class="sr-only">
+      <span>{{ 'End date'|t }}</span>
+      <time datetime="{{ end_date }}">{{ end_date|date(date_format) }}</time>
+    </div>
+  {% endif %}
+{% endset %}
+
+<article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  <div class="flex flex-col items-start">
+    <div class="mb-4 md:mb-6 lg:mb-8">
+      <h1 id="h1id" class="text-gray-900 font-bold text-2xl md:text-3xl lg:text-5xl">
+        {{ label }}
+      </h1>
+    </div>
+    <div class="flex bg-gray-100 order-first text-cta-text font-bold px-4 py-2 mb-4">
+      {{ date_output }}
+    </div>
+  </div>
+
+  <p class="text-lg text-gray-700 mb-4 md:mb-6 md:text-xl lg:mb-8 lg:text-2xl">
+    {{ content.field_event_preamble.0 }}
+  </p>
+
+  {% if content.field_event_image is not empty %}
+    <figure class="flex flex-col -mx-6 mb-5 md:-mx-12 md:mb-6 lg:mb-8">
+      <div class="mb-2">
+        {{ content.field_event_image }}
+      </div>
+      <figcaption class="flex text-gray-600 justify-between mx-6 md:mx-12">
+        <span>{{ content.field_event_image_byline }}</span>
+        <span class="flex flex-shrink-0 ml-6 text-right">{{ 'Photographer'|t }}:<span class="ml-1">{{ content.field_event_image_photographer }}</span></span>
+      </figcaption>
+    </figure>
+  {% endif %}
+
+  <div class="grid grid-flow-cols grid-cols-2 gap-6 mb-5 text-primary-text md:mb-6 lg:mb-8">
+    <h2 class="sr-only">{{ 'Event details'|t }}</h2>
+    <div>
+      <h3 class="mb-1">{{ 'Event type'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_type.0["#title"] }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Location'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_location }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Address'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_address }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Date'|t }}</h3>
+      <div class="flex font-bold">{{ date_output }}</div>
+    </div>
+    {% if not multiple_dates %}
+      <div>
+        <h3 class="mb-1">{{ 'Time'|t }}</h3>
+        <p class="font-bold">{{ start_date|date(date_time_format) }} – {{ end_date|date(date_time_format) }}</p>
+      </div>
+    {% endif %}
+    <div>
+      <h3 class="mb-1">{{ 'Cost'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_cost }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Currency'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_currency }}</p>
+    </div>
+    <div class="col-span-2">
+      <h3 class="mb-3">{{ 'Registration'|t }}</h3>
+      {% if node.field_event_fully_booked.value %}
+        <div class="inline-flex items-center bg-yellow-100 font-bold text-yellow-900 py-4 pl-5 pr-6">
+          <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          {{ 'The event is fully booked'|t }}
+        </div>
+      {% else %}
+        <div>
+          <a
+            class="inline-flex items-center bg-cta-bg group text-cta-text font-bold py-4 px-6 transition-background duration-150 ease-in-out hover:bg-cta-bg-active"
+            href="{{ content.field_event_registration }}"
+            rel="nofollow noreferrer"
+            target="_blank"
+            aria-label="{{ 'Register for this event (external link)'|t }}"
+          >
+            {{ 'Register for this event'|t }}
+            <svg class="w-5 h-5 ml-2 transition-transform transform duration-150 group-hover:translate-x-px group-hover:-translate-y-px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div>
+    <h2 class="sr-only">{{ 'Event information'|t }}</h2>
+    {{ content.field_event_body }}
+  </div>
+
+  {{ title_suffix }}
+</article>
