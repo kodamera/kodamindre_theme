@@ -69,7 +69,7 @@
         {{ label }}
       </h1>
     </div>
-    <div class="flex bg-gray-100 order-first text-cta-text font-bold px-4 py-2 mb-4">
+    <div class="flex text-green-900 bg-green-200 rounded order-first text-cta-text font-bold px-4 py-2 mb-4">
       {{ date_output }}
     </div>
   </div>
@@ -93,18 +93,6 @@
   <div class="grid grid-flow-cols grid-cols-2 gap-6 mb-5 text-primary-text md:mb-6 lg:mb-8">
     <h2 class="sr-only">{{ 'Event details'|t }}</h2>
     <div>
-      <h3 class="mb-1">{{ 'Event type'|t }}</h3>
-      <p class="font-bold">{{ content.field_event_type.0["#title"] }}</p>
-    </div>
-    <div>
-      <h3 class="mb-1">{{ 'Location'|t }}</h3>
-      <p class="font-bold">{{ content.field_event_location }}</p>
-    </div>
-    <div>
-      <h3 class="mb-1">{{ 'Address'|t }}</h3>
-      <p class="font-bold">{{ content.field_event_address }}</p>
-    </div>
-    <div>
       <h3 class="mb-1">{{ 'Date'|t }}</h3>
       <div class="flex font-bold">{{ date_output }}</div>
     </div>
@@ -115,12 +103,24 @@
       </div>
     {% endif %}
     <div>
+      <h3 class="mb-1">{{ 'Location'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_location.0 }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Address'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_address.0 }}</p>
+    </div>
+    <div>
+      <h3 class="mb-1">{{ 'Event type'|t }}</h3>
+      <p class="font-bold">{{ content.field_event_type.0["#title"] }}</p>
+    </div>
+    <div>
       <h3 class="mb-1">{{ 'Cost'|t }}</h3>
-      <p class="font-bold">{{ content.field_event_cost }}</p>
+      <p class="font-bold">{{ content.field_event_cost.0 }}</p>
     </div>
     <div>
       <h3 class="mb-1">{{ 'Currency'|t }}</h3>
-      <p class="font-bold">{{ content.field_event_currency }}</p>
+      <p class="font-bold">{{ content.field_event_currency.0 }}</p>
     </div>
     <div class="col-span-2">
       <h3 class="mb-3">{{ 'Registration'|t }}</h3>
@@ -134,7 +134,7 @@
       {% else %}
         <div>
           <a
-            class="inline-flex items-center bg-blue-900 group text-white font-bold py-4 px-6 transition-background duration-150 ease-in-out hover:bg-cta-bg-active"
+            class="w-auto inline-flex font-bold items-center justify-center transition font-medium px-8 py-3 text-base rounded text-green-900 bg-green-200 hover:bg-green-300 md:py-4 md:text-lg md:px-10"
             href="{{ content.field_event_registration.uri }}"
             rel="nofollow noreferrer"
             target="_blank"
