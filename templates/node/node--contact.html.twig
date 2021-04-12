@@ -1,0 +1,67 @@
+{% set classes = [
+    'container',
+    'my-12',
+    'md:max-w-screen-sm',
+    'md:my-24',
+    'lg:max-w-screen-md',
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div{{ content_attributes.addClass('flex flex-col md:flex-row') }}>
+    <div class="md:w-8/12">
+      <h1 class="font-bold text-2xl leading-snug md:text-3xl md:leading-snug lg:text-4xl lg:leading-snug xl:text-5xl xl:leading-snug">{{ label }}</h1>
+      <p class="text-lg text-gray-700 mb-4 md:text-xl lg:text-2xl">{{ content.field_contact_role.0 }}</p>
+
+      <div class="grid grid-cols-1 gap-1 text-lg mb-4">
+        <h2 class="sr-only">{{ 'Contact information'|t }}</h2>
+        {% if content.field_contact_email is not empty %}
+          <div>
+            <h3 class="sr-only">{{ 'E-mail address'|t }}</h3>
+            <a class="text-blue-900 transition font-bold hover:underline hover:text-blue-700" href="mailto:{{ content.field_contact_email.0 }}">
+              {{ content.field_contact_email.0 }}
+            </a>
+          </div>
+        {% endif %}
+
+        {% if content.field_contact_phone is not empty %}
+          <div>
+            <h3 class="sr-only">{{ 'Phone number'|t }}</h3>
+            <a class="text-blue-900 transition font-bold hover:underline hover:text-blue-700" href="tel:{{ content.field_contact_phone.0 }}">
+              {{ content.field_contact_phone.0 }}
+            </a>
+          </div>
+        {% endif %}
+
+        {% if content.field_contact_mobile_phone is not empty %}
+          <div>
+            <h3 class="sr-only">{{ 'Mobile phone number'|t }}</h3>
+            <a class="text-blue-900 transition font-bold hover:underline hover:text-blue-700" href="tel:{{ content.field_contact_mobile_phone.0 }}">
+              {{ content.field_contact_mobile_phone.0 }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+      {% if content.field_contact_information is not empty %}
+        <div class="prose prose-xl bg-transparent mb-4 md:mb-0">
+          <h3 class="sr-only">{{ 'Additional information'|t }}</h3>
+          {{ content.field_contact_information.0 }}
+        </div>
+      {% endif %}
+    </div>
+    {% if content.field_contact_image %}
+      <div class="md:w-4/12 md:pl-6">
+        <span class="mt-4">
+          {{ content.field_contact_image }}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</article>
