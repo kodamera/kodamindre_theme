@@ -9,7 +9,7 @@ module.exports = {
     content: [
       'templates/**/*.html.twig',
       'src/js/**/*.js',
-      '../../../modules/contrib/tailwind_lb/*/**/*.html.twig',
+      '../../../modules/contrib/tailwind_*/*/**/*.html.twig',
       'km_frontend_starterkit.theme'
     ],
     options: {
