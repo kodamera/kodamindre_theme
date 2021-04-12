@@ -14,7 +14,7 @@ See https://www.drupal.org/node/2649076
     <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
       <img class="w-12 h-12" src="/{{ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
     </a>
-    <button class="js-menu-main-close flex items-center font-bold lg:hidden" aria-label="{{ 'Close main menu'|t }}">
+    <button class="js-menu-main-close flex items-center font-bold transform translate-x-1 lg:hidden" aria-label="{{ 'Close main menu'|t }}">
       {{ 'Close'|t }}
       <svg class="w-6 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -29,76 +29,100 @@ See https://www.drupal.org/node/2649076
     set menu_classes = [
       'flex',
       'flex-col',
-      'lg:flex-row'
-    ]
-  %}
-
-  {%
-    set submenu_classes = [
-      'js-submenu',
-      'hidden',
-      'flex',
-      'flex-col',
-      'transform',
-      'lg:group-hover:flex',
-      'lg:absolute',
-      'lg:top-full',
-      'lg:left-0',
-      'lg:bg-white',
-      'lg:shadow',
-      'lg:shadow-sm',
-      'lg:rounded-md',
-      'lg:w-64',
+      'lg:flex-row',
+      'lg:px-0'
     ]
   %}
 
 
   {% import _self as menus %}
+    {%
+      set submenu_one_classes = [
+        'js-submenu',
+        'hidden',
+        'relative',
+        'flex',
+        'flex-col',
+        'transform',
+        'transition',
+        'lg:group-hover:flex',
+        'lg:bg-white',
+        'lg:w-64',
+        'lg:absolute',
+        'lg:top-full',
+      ]
+    %}
+
+    {%
+      set submenu_two_classes = [
+        'js-submenu',
+        'hidden',
+        'relative',
+        'flex',
+        'flex-col',
+        'transform',
+        'transition',
+        'lg:group-hover:flex',
+        'lg:bg-white',
+        'lg:w-64',
+      ]
+    %}
+
     {% if items %}
       {% if menu_level == 0 %}
-<ul{{ attributes.addClass(menu_classes) }}>
-  {% else %}
-  <ul{{ attributes.removeClass(menu_classes).addClass(submenu_classes) }}>
+        <ul{{ attributes.addClass(menu_classes) }}>
+      {% elseif menu_level == 1 %}
+        <ul{{ attributes.removeClass(menu_classes).addClass(submenu_one_classes) }}>
+      {% else %}
+        <ul{{ attributes.removeClass(menu_classes).removeClass(submenu_one_classes).addClass(submenu_two_classes) }}>
     {% endif %}
+
     {% for item in items %}
       {%
         set item_classes = [
-        'flex',
-        'relative',
-        'lg:inline-flex',
-        item.in_active_trail ? 'underline',
-        item.below ? 'flex-col group'
-      ]
+          'flex',
+          'relative',
+          item.in_active_trail ? 'underline',
+          item.below ? 'flex-col group',
+          'lg:inline-flex',
+        ]
       %}
+
       {%
         set link_classes = [
-        'inline-flex',
-        'py-3',
-        'px-5',
-        'font-bold',
-        'hover:underline',
-        'focus:underline',
-        'w-full',
-        item.in_active_trail ? 'underline',
-        menu_level == 0 ? 'text-base text-gray-900' : 'text-gray-700 text-sm',
-      ]
+          'inline-flex',
+          'px-5',
+          'py-3',
+          'font-bold',
+          'h-12',
+          'leading-tight',
+          'hover:underline',
+          'focus:underline',
+          'w-full',
+          item.in_active_trail ? 'underline',
+          item.below ? 'lg:pr-0',
+          menu_level == 0 ? 'text-gray-900 text-lg' : 'text-gray-700 text-base',
+          menu_level == 1 ? 'pl-8',
+          menu_level == 2 ? 'pl-10',
+        ]
       %}
+
       <li {{ item.attributes.addClass(item_classes) }}>
         {% if item.below %}
         <div class="flex justify-between">
           {% endif %}
           {{
           link (
-            item.title,
-            item.url,
-            item.attributes.removeClass(item_classes).removeClass(button_classes).addClass(link_classes)
-          )
+              item.title,
+              item.url,
+              item.attributes.removeClass(item_classes).removeClass(button_classes).addClass(link_classes)
+            )
           }}
 
           {% if item.below %}
             {# add arrow in sketches here #}
-            <button class="js-submenu-toggle inline-flex items-center justify-center w-12 h-12 flex-shrink-0 text-gray-900 lg:border-none" aria-expanded="false" aria-haspopup="menu" aria-label="{{ 'Submenu for: '|t }}{{ item.title }}">
-              <svg class="transform transition w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button class="js-submenu-toggle relative inline-flex items-center justify-center w-12 h-12 flex-shrink-0 text-gray-900 outline-none focus:outline-none lg:border-none" aria-expanded="false" aria-haspopup="menu" aria-label="{{ 'Submenu for: '|t }}{{ item.title }}">
+              <svg class="transform transition w-5 h-5 pointer-events-none lg:rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </button>

@@ -6,7 +6,7 @@
 {% set heading_id = attributes.id |clean_id %}
 
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
-  <button class="js-menu-main-open flex items-center font-bold lg:hidden" aria-expanded="false" aria-haspopup="menu">
+  <button class="js-menu-main-open flex items-center font-bold transform translate-x-1 lg:hidden" aria-expanded="false" aria-haspopup="menu">
     {{ 'Menu'|t }}
     <svg class="w-6 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
