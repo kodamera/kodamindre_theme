@@ -58,8 +58,6 @@
             ? target.setAttribute('aria-expanded', 'false')
             : target.setAttribute('aria-expanded', 'true');
 
-          console.log(window.matchMedia(lgBreakPoint).matches);
-
           if (window.matchMedia(lgBreakPoint).matches) {
             // Rotate icon.
             icon.classList.toggle('lg:-rotate-90');
