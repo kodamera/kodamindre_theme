@@ -1,11 +1,12 @@
-name: 'Kodamera frontend starterkit'
+name: 'Tailwind Theme'
 type: theme
-description: 'Frontend starterkit for Kodamera to get up to speed with frontend development fast.'
+description: 'Front-end starter kit based on the utility-first CSS framework Tailwind CSS.'
+version: '1.0'
 core_version_requirement: ^8 || ^9
 base theme: false
 libraries:
-  - km_frontend_starterkit/global-styling
-  - km_frontend_starterkit/global-scripts
+  - tailwind_theme/global-styling
+  - tailwind_theme/global-scripts
 regions:
   branding: Branding
   main_navigation: Main navigation
@@ -15,5 +16,3 @@ regions:
   content: Content
   post_content: Post content
   footer_navigation: Footer navigation
-ckeditor_stylesheets:
-  - css/ckeditor.css

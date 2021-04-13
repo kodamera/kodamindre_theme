@@ -10,7 +10,7 @@ module.exports = {
       'templates/**/*.html.twig',
       'src/js/**/*.js',
       '../../../modules/contrib/tailwind_*/*/**/*.html.twig',
-      'km_frontend_starterkit.theme'
+      'tailwind_theme.theme'
     ],
     options: {
       safelist: [

@@ -1,6 +1,6 @@
 {
-  "name": "km_frontend_starterkit",
-  "description": "Front-end starter kit to quickly get up to speed with front-end development",
+  "name": "tailwind_theme",
+  "description": "Front-end starter kit based on the utility-first CSS framework Tailwind CSS.",
   "version": "1.0.0",
   "private": true,
   "author": "Kodamera AB",
