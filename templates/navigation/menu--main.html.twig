@@ -9,7 +9,7 @@ we avoid class clashes ang generate specific markup.
 See https://www.drupal.org/node/2649076
 #}
 
-<div class="js-main-navigation transition duration-300 bg-white w-screen fixed top-0 bottom-0 scale-95 transform opacity-0 invisible origin-top-right left-0 right-0 flex flex-col transform z-50 lg:bg-transparent lg:relative lg:w-auto lg:top-0 lg:opacity-100 lg:visible lg:translate-x-4">
+<div class="js-main-navigation transition duration-300 bg-white w-screen fixed top-0 bottom-0 scale-95 transform opacity-0 invisible origin-top-right left-0 right-0 flex flex-col transform z-50 lg:bg-transparent lg:relative lg:w-auto lg:top-0 lg:opacity-100 lg:visible lg:translate-x-5">
   <div class="flex py-2 w-full items-center justify-between px-5 lg:hidden">
     <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
       <img class="w-12 h-12" src="/{{ directory }}/logo.svg" alt="{{ 'Home'|t }}" />
@@ -45,8 +45,8 @@ See https://www.drupal.org/node/2649076
         'flex-col',
         'transform',
         'transition',
+        'bg-gray-200',
         'lg:group-hover:flex',
-        'lg:bg-white',
         'lg:w-64',
         'lg:absolute',
         'lg:top-full',
@@ -62,8 +62,8 @@ See https://www.drupal.org/node/2649076
         'flex-col',
         'transform',
         'transition',
+        'bg-gray-300',
         'lg:group-hover:flex',
-        'lg:bg-white',
         'lg:w-64',
       ]
     %}
@@ -91,7 +91,8 @@ See https://www.drupal.org/node/2649076
       {%
         set link_classes = [
           'inline-flex',
-          'px-5',
+          'px-4',
+          'ml-1',
           'py-3',
           'font-bold',
           'h-12',
@@ -103,7 +104,8 @@ See https://www.drupal.org/node/2649076
           item.below ? 'lg:pr-0',
           menu_level == 0 ? 'text-gray-900' : 'text-gray-700',
           menu_level == 1 ? 'pl-8',
-          menu_level == 2 ? 'pl-10',
+          menu_level == 2 ? 'pl-12',
+          'lg:px-5',
         ]
       %}
 
@@ -121,7 +123,12 @@ See https://www.drupal.org/node/2649076
 
           {% if item.below %}
             {# add arrow in sketches here #}
-            <button class="js-submenu-toggle relative inline-flex items-center justify-center w-12 h-12 flex-shrink-0 text-gray-900 outline-none focus:outline-none lg:border-none" aria-expanded="false" aria-haspopup="menu" aria-label="{{ 'Submenu for: '|t }}{{ item.title }}">
+            <button
+              class="js-submenu-toggle js-submenu-toggle--{{ menu_level + 1 }} relative inline-flex items-center justify-center w-12 h-12 flex-shrink-0 text-gray-900 outline-none focus:outline-none lg:border-none"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              aria-label="{{ 'Submenu for: '|t }}{{ item.title }}"
+            >
               <svg class="transform transition w-5 h-5 pointer-events-none lg:rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>

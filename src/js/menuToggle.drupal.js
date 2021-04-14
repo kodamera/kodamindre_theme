@@ -70,9 +70,14 @@
             // Rotate icon.
             icon.classList.toggle('rotate-90');
 
-            // Highlight parent.
-            parent.classList.toggle('bg-gray-100');
-            target.classList.toggle('bg-gray-200');
+            // Highlight active sub menu.
+            if (target.classList.contains('js-submenu-toggle--1')) {
+              target.classList.toggle('bg-gray-200');
+              parent.classList.toggle('bg-gray-200');
+            } else if (target.classList.contains('js-submenu-toggle--2')) {
+              target.classList.toggle('bg-gray-300');
+              parent.classList.toggle('bg-gray-300');
+            }
           }
 
           // Show hide sub menu.
