@@ -12,6 +12,11 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
+// Make sure we don't process any of the urls.
+mix.options({
+  processCssUrls: false
+});
+
 /*
  |--------------------------------------------------------------------------
  | JavaScript.

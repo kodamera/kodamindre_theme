@@ -21,5 +21,11 @@ You have a bunch of different commands available, take a closer look in `package
 To start compiling and watching for changes in CSS and JavaScript, and start browserstack and the webpack dev server, run:
 `$ yarn run watch`.
 
+## Laravel Mix
+This setup uses Laravel Mix as build tool.
+
+### Process CSS URLs
+Make sure your setup does not process CSS urls, that will cause you problems.
+
 ## Questions?
 Give [Henrik Larsson](mailto:henrik@kodamera.se) or [Vigfus Valgeirsson](vigfus@kodamera.se) a shout!
