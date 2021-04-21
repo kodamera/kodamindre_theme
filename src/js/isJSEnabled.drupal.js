@@ -1,11 +1,12 @@
 // @file isJSEnabled.drupal.js
-
-import isJSEnabled from './isJSEnabled.es6';
-
 (({ behaviors }) => {
-  behaviors.isJSEnabled = {
-    attach() {
-     isJSEnabled();
+  behaviors.menuToggle = {
+    attach(context) {
+      const $body = document.querySelector("body");
+
+      if ($body) {
+        $body.classList.remove("has-no-js");
+      }
     }
   };
-})(Drupal, drupalSettings);
+})(Drupal);
