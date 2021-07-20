@@ -2,8 +2,9 @@
 
 {% block content %}
   {% if site_logo %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-      <img class="w-12 h-auto" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+    <a class="flex" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <img class="w-12 h-8" src="{{ site_logo }}" alt="{{ 'Site logotype'|t }}" />
+      <span class="ml-2 font-bold">Tailwind Theme</span>
     </a>
   {% endif %}
   {% if site_name %}
