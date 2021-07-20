@@ -5,7 +5,6 @@ module.exports = {
     container: false,
   },
   purge: {
-    mode: 'all',
     content: [
       'templates/**/*.html.twig',
       'src/js/**/*.js',
@@ -24,12 +23,6 @@ module.exports = {
     }
   },
   theme: {
-    transitionDuration: {
-      DEFAULT: '150ms',
-    },
-    transitionTimingFunction: {
-      DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    },
     typography: {
       default: {
         css: {
@@ -62,11 +55,6 @@ module.exports = {
       },
     },
     extend: {
-      transitionDuration: {
-        100: '100ms',
-        200: '200ms',
-        300: '300ms',
-      },
       minHeight: {
         'half-screen': '50vh',
       },
@@ -79,7 +67,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/ui'),
     ({ addComponents, theme }) => {
       addComponents({
         ".container": {

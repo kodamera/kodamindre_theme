@@ -54,7 +54,13 @@ mix.copy('src/images', 'dist/images');
 mix.browserSync({
   host: 'localhost',
   port: 3000,
-  files: ["dist/css/index.css", "dist/js/index.drupal.js", "templates/**/*.html.twig"],
+  files: [
+    'src/css/**/*.css',
+    'src/js/**/*.js',
+    'templates/**/*.html.twig',
+    'tailwind_theme.theme',
+    '../../../modules/contrib/tailwind_*/*/**/*.html.twig'
+  ],
   proxy: "http://km-frontend-starterkit.test/"
 });
 
