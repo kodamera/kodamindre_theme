@@ -3,19 +3,6 @@
  * ----------------------------------------------------------------------------
  */
 
-/* purgecss start ignore */
-
-/* Base CSS */
-@import "tailwindcss/base";
-@import "./base.css";
-@import "./colors.css";
-@import "./fonts.css";
-
-/* Components CSS */
-@import "tailwindcss/components";
-
-/* purgecss end ignore */
-
-/* Utility CSS */
-@import "tailwindcss/utilities";
-@import "./utilities/all.css";
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;

@@ -57,9 +57,9 @@ mix.browserSync({
   files: [
     'src/css/**/*.css',
     'src/js/**/*.js',
-    'templates/**/*.html.twig',
+    'templates/**/*.twig',
     'tailwind_theme.theme',
-    '../../../modules/contrib/tailwind_*/*/**/*.html.twig'
+    '../../../modules/contrib/tailwind_*/*/**/*.twig'
   ],
   proxy: "http://km-frontend-starterkit.test/"
 });
