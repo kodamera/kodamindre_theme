@@ -25,13 +25,7 @@ module.exports = {
     'lg:prose-lg',
     'xl:prose-xl'
   ],
-  theme: {
-    extend: {
-      minHeight: {
-        'half-screen': '50vh',
-      },
-    },
-  },
+  theme: {},
   plugins: [
     require('@tailwindcss/typography'),
     ({ addComponents, theme }) => {
