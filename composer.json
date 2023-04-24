@@ -1,34 +1,14 @@
 {
-    "name": "kodamera/tailwind_theme",
-    "description": "Install profile for KM Frontend Starterkit",
-    "type": "drupal-profile",
+    "name": "kodamera/kodamindre_theme",
+    "description": "Install theme for KM Frontend Starterkit",
+    "type": "drupal-theme",
     "homepage": "https://www.kodamera.se/",
     "license": "GPL-2.0-or-later",
-    "repositories": [
+    "minimum-stability": "stable",
+    "authors": [
         {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
+            "name": "Kodamera",
+            "email": "info@kodamera.se"
         }
-    ],
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "enable-patching": true,
-        "composer-exit-on-patch-failure": true,
-        "patchLevel": {
-            "drupal/core": "-p2"
-        },
-        "installer-paths": {
-            "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/{$name}": ["type:drupal-drush"]
-        },
-        "patches": {}
-    }
+    ]
 }
